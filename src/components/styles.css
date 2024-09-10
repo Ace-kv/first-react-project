@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    /* NAVBAR */
+    .nav {
+        @apply flex justify-between items-center flex-wrap lg:h-[70px] px-8 lg:px-[100.23px] py-[11.24px]
+    }
+
+    .links-and-btn {
+        @apply w-full flex flex-col flex-grow border rounded-md px-3.5 pt-1.5 pb-5 lg:flex-row lg:justify-center 
+        lg:items-center lg:w-auto lg:flex-grow-0 lg:border-0 lg:p-0
+    }
+
+    .links {
+        @apply flex flex-col py-2 lg:py-0 lg:flex-row lg:justify-center lg:items-center
+    }
+
+    .links a {
+        @apply text-body-2-medium px-6 py-2 lg:py-0 rounded-md active:bg-colorTint-tint1 active:text-white 
+        hover:bg-colorTint-tint1 hover:text-white transition duration-150
+    }
+
+    .hamburger-icon {
+        @apply mt-1 sm:hidden 
+    }
+
+    /* BUTTON */
+    .btn {
+        @apply bg-colorShade-shade1 text-body-2-medium text-white flex justify-center items-center gap-1.5 
+        px-[22.27px] pt-[9.74px] pb-[12px] rounded-[2.78px]
+    }
+
+    /* COMMUNITY CARD */
+    .community-card {
+        @apply w-[300px] flex flex-col gap-[2.67px] py-4 px-[20px] items-center 
+        shadow-[0px_2px_4.335px_0px_rgba(171,190,209,0.20)] rounded-[2.67px]
+    }
+
+    .community-card-icon-and-heading {
+        @apply flex flex-col gap-[5px] items-center text-headline-3 text-neutral-d_grey text-center
+    }
+
+    .community-card-icon {
+        @apply mb-2
+    }
+
+    .clients-and-community-second-h3 {
+        @apply -mt-1.5 mb-3.5
+    }
+
+    .community-card-p {
+        @apply text-neutral-grey text-body-3-regular text-center
+    }
+
+    /* ILLUSHTB */
+    .IHTB-wrapper {
+        @apply px-10 lg:px-[100.23px]       /* using this wrapper as compared to others in main styles to see the difference */
+    }
+
+    .IHTB-content {
+        @apply flex flex-col lg:flex-row justify-between items-center py-12
+    }
+
+    .IHTB-left-side {
+        @apply flex flex-col justify-center h-[450px]
+    }
+
+    .IHTB-right-side {
+        @apply w-full lg:w-8/12 flex flex-col items-center lg:items-start gap-8
+    }
+
+    .IHTB-RS-heading-and-text {
+        @apply w-full lg:w-[85%] flex flex-col gap-0.5
+    }
+
+    .IHTB-RS-second-h2 {
+        @apply -mt-1.5 mb-3.5
+    }
+
+    .IHTB-p {
+        @apply text-neutral-grey text-body-3-regular text-center lg:text-start
+    }
+
+    /* ACHIEVEMENT */
+    .achievement {
+        @apply w-[200px] flex gap-4
+    }
+
+    .achievement-rs-text {
+        @apply text-neutral-grey text-body-3-regular mt-0.5
+    }
+
+    /* COMMUNITY UPDATE CARD */
+    .comm-upd-card {
+        @apply flex flex-col items-center
+    }
+
+    .comm-upd-card-img {
+        @apply rounded
+    }
+
+    .comm-upd-card-hText-and-btn {
+        @apply bg-neutral-silver text-body-1-regular text-neutral-grey text-center font-semibold flex flex-col
+         justify-between items-center gap-2 p-3.5 rounded -mt-24 shadow-[0px_5px_9.342px_0px_rgba(171,190,209,0.40)]
+    }
+
+    .comm-upd-card-btn {
+        @apply text-colorTint-tint1 flex gap-1.5 items-center py-3
+    }
+
+    /* FOOTER */
+    .footer {
+        @apply bg-neutral-black flex flex-col lg:flex-row justify-between items-center gap-20 lg:gap-36 
+        px-14 lg:px-[120px] py-[60px]
+    }
+
+    .footer-ls {
+        @apply flex flex-col justify-between items-center lg:items-start gap-12
+    }
+
+    .footer-text {
+        @apply text-neutral-silver text-body-3-regular text-center lg:text-start
+    }
+
+    .footer-social-links {
+        @apply flex gap-2
+    }
+
+    .footer-rs {
+        @apply flex flex-col lg:flex-row justify-between gap-20 lg:gap-36
+    }
+
+    .footer-h4 {
+        @apply mb-6
+    }
+
+    .footer-links {
+        @apply mt-3
+    }
+
+    .newsltr {
+        @apply relative
+    }
+
+    .newsltr-input {
+        @apply bg-[#ffffff37] placeholder-[#D9DBE1] placeholder:text-body-3-regular px-4 py-2 rounded-lg inline-block
+    }
+
+    .newsltr-input-btn {
+        @apply absolute top-[3.8rem] right-3.5
+    }
+
+}

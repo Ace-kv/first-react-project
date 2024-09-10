@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    h1 {
+        @apply text-[55px] leading-[3.5rem] font-semibold lg:text-headline-1 text-neutral-d_grey
+    }
+
+    h2 {
+        @apply text-headline-2 text-neutral-d_grey text-center lg:text-start
+    }
+
+    h3 {
+        @apply text-headline-3 text-neutral-d_grey
+    }
+
+    h4 {
+        @apply text-headline-4 text-white text-center lg:text-start
+    }
+
+    section {
+        @apply mb-[47.84px]
+    }
+
+    footer {
+        @apply mt-[47.84px]
+    }
+
+    ul {
+        @apply list-none
+    }
+
+}
+
+@layer components {
+
+    /* HERO SECTION */
+    .hero-wrapper {
+        @apply bg-neutral-silver flex justify-between items-center gap-[72.39px] px-10 lg:px-[100.23px] py-[66.82px]
+    }
+
+    .hero-left-side {
+        @apply flex flex-col gap-7 lg:gap-[22.27px]
+    }
+
+    .hero-text {
+        @apply flex flex-col gap-5 lg:gap-[11.14px]
+    }
+
+    .hero-text-colored-h1 {
+        @apply text-colorShade-shade1
+    }
+
+    .hero-text-p {
+        @apply text-body-2-regular lg:text-body-1-regular text-neutral-grey
+    }
+
+    .hero-right-side {
+        @apply hidden lg:block
+    }
+
+    /* CLIENTS AND SOME COMMUNITY SECTION */
+    .clients-and-community-wrapper {
+        @apply flex flex-col gap-[11.14px] items-center px-10 lg:px-[100.23px]
+    }
+
+    .clients-and-community-headings-and-text {
+        @apply flex flex-col gap-[5.57px] items-center
+    }
+
+    .clients-and-community-second-h2 {
+        @apply -mt-1.5 mb-1.5
+    }
+
+    .clients-and-community-p {
+        @apply text-neutral-grey text-center text-body-2-regular
+    }
+
+    .client-logos {
+        @apply flex justify-between w-full py-6 mt-4
+    }
+
+    /* COMMUNITY SECTION */
+    .community-cards {
+        @apply w-full flex flex-col lg:flex-row justify-between items-center px-12 mt-4
+    }
+
+    /* ACHIEVEMENTS SECTION */
+    .achievements-wrapper {
+        @apply bg-neutral-silver flex flex-col lg:flex-row justify-between items-center px-10 lg:px-[100.23px] py-[70px]
+    }
+
+    .achiev-ls-heading-and-text {
+        @apply flex flex-col gap-3
+    }
+
+    .achiev-colored-h2 {
+        @apply text-colorShade-shade1
+    }
+
+    .achiev-text {
+        @apply text-[#18191F] text-body-2-regular text-center lg:text-start
+    }
+
+    .achiev-rs-icon-and-stats {
+        @apply flex flex-col gap-12 mt-12 lg:mt-0
+    }
+
+    .achiev-rs-icon-and-stats-row {
+        @apply flex flex-col lg:flex-row gap-12 lg:gap-[180px] justify-between
+    }
+
+    /* COMMUNITY UPDATES SECTION */
+    .comm-upd-wrapper {
+        @apply px-10 lg:px-[100.23px] py-[50px]
+    }
+
+    .comm-upd-container {
+        @apply flex flex-col justify-between items-center gap-8 mx-auto
+    }
+
+    .comm-upd-heading-and-text {
+        @apply flex flex-col justify-between items-center text-center
+    }
+
+    .comm-upd-text {
+        @apply text-body-3-regular text-neutral-grey text-center mt-2 lg:w-[540px]
+    }
+
+    .comm-upd-cards {
+        @apply flex flex-col lg:flex-row justify-between gap-10
+    }
+
+}
