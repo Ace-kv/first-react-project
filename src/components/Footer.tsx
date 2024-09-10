@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="footer-ls">
                 <a href="/">
                     <img 
-                        src="/src/assets/images/LogoF.png" 
+                        src="../../public/assets/images/LogoF.png" 
                         alt="footer-logo" 
                         width={170}
                     />
