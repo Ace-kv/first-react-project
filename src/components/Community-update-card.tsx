@@ -1,4 +1,4 @@
-import RightG from '../assets/icons/Right-g.svg?react'
+import RightG from '../../assets/icons/Right-g.svg?react'
 
 const CommunityUpdCard = ({imgName, imgWidth = 390, hText}: {
     imgName: string,

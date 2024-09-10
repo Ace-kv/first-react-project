@@ -1,8 +1,8 @@
-import Instagram from '../assets/icons/instagram-icon.svg?react'
-import Web from '../assets/icons/web-icon.svg?react'
-import Twitter from '../assets/icons/twitter-icon.svg?react'
-import Youtube from '../assets/icons/youtube-icon.svg?react'
-import SendBtn from '../assets/icons/send.svg?react'
+import Instagram from '../../assets/icons/instagram-icon.svg?react'
+import Web from '../../assets/icons/web-icon.svg?react'
+import Twitter from '../../assets/icons/twitter-icon.svg?react'
+import Youtube from '../../assets/icons/youtube-icon.svg?react'
+import SendBtn from '../../assets/icons/send.svg?react'
 
 const  transformString = (str: string) => {
     // Split the string into words

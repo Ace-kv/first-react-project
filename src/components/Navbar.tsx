@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Logo from "../assets/images/LogoH.png"
+import Logo from "../../assets/images/LogoH.png"
 import Button from './Button.tsx'
-import Bars from "../assets/icons/hamburger-icon.svg?react"
+import Bars from "../../assets/icons/hamburger-icon.svg?react"
 import './styles.css'
 
 const Navbar = () => {

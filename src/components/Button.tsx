@@ -1,4 +1,4 @@
-import Right from "../assets/Right.svg"
+import Right from "../../assets/Right.svg"
 
 const Button = ({ text, image }: {text: string, image?: boolean}) => {
     return (

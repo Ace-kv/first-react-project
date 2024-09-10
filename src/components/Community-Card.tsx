@@ -9,7 +9,7 @@ const CommunityCard = ({imageFileName, hTextT, hTextB, pText  }: {
             <div className="community-card-icon-and-heading">
                 <img 
                     className="community-card-icon"
-                    src={`/src/assets/icons/${imageFileName}`}    
+                    src={`../../assets/icons/${imageFileName}`}    
                     alt={`${imageFileName}-icon`} 
                     width={61.7}
                     height={58.7}
