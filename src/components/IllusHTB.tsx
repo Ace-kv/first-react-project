@@ -12,7 +12,7 @@ const IllustrationHeadingTextBtnSec = ({imageFileName, imgWidth, hTextT, hTextB,
             <div className="IHTB-content">
                 <div className="IHTB-left-side">
                     <img 
-                        src={`/src/assets/images/${imageFileName}.png`}
+                        src={`/public/assets/images/${imageFileName}.png`}
                         alt={`${imageFileName} illustration`}
                         width={imgWidth}
                     />

@@ -8,7 +8,7 @@ const CommunityUpdCard = ({imgName, imgWidth = 390, hText}: {
     return (
         <div className='comm-upd-card'>
             <img 
-                src={`/src/assets/images/${imgName}.png`} 
+                src={`/public/assets/images/${imgName}.png`} 
                 alt="" 
                 width={imgWidth}
                 // height={400}
