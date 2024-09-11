@@ -1,4 +1,11 @@
 import Button from "./Button.tsx"
+import RIllustr from '../../public/assets/images/rafiki_Illustration.png'
+import PIllustr from '../../public/assets/images/pana_Illustration.png'
+
+const illustrMap: { [key: string]: string } = {
+    'rafiki_Illustration': RIllustr,
+    'pana_Illustration': PIllustr
+}
 
 const IllustrationHeadingTextBtnSec = ({imageFileName, imgWidth, hTextT, hTextB, pText }: {
     imageFileName: string,
@@ -6,13 +13,15 @@ const IllustrationHeadingTextBtnSec = ({imageFileName, imgWidth, hTextT, hTextB,
     hTextT: string,
     hTextB: string,
     pText: string
-    }) => {
+}) => {
+    const imageFile = illustrMap[imageFileName] || ''
+
     return (
         <div className="IHTB-wrapper">
             <div className="IHTB-content">
                 <div className="IHTB-left-side">
                     <img 
-                        src={`../../public/assets/images/${imageFileName}.png`}
+                        src={imageFile}
                         alt={`${imageFileName} illustration`}
                         width={imgWidth}
                     />

@@ -1,14 +1,25 @@
 import RightG from '../../public/assets/icons/Right-g.svg?react'
+import CCard1 from '../../public/assets/images/cCard-img1.png'
+import CCard2 from '../../public/assets/images/cCard-img2.png'
+import CCard3 from '../../public/assets/images/cCard-img3.png'
+
+const imageMap: { [key: string]: string } = {
+    'cCard-img1': CCard1,
+    'cCard-img2': CCard2,
+    'cCard-img3': CCard3
+}
 
 const CommunityUpdCard = ({imgName, imgWidth = 390, hText}: {
     imgName: string,
     imgWidth?: number,
     hText: string
 }) => {
+    const imageFile = imageMap[imgName] || ''
+
     return (
         <div className='comm-upd-card'>
             <img 
-                src={`../../public/assets/images/${imgName}.png`} 
+                src={imageFile} 
                 alt="" 
                 width={imgWidth}
                 // height={400}

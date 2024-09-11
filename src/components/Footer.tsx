@@ -1,3 +1,4 @@
+import Logo from '../../public/assets/images/LogoF.png'
 import Instagram from '../../public/assets/icons/instagram-icon.svg?react'
 import Web from '../../public/assets/icons/web-icon.svg?react'
 import Twitter from '../../public/assets/icons/twitter-icon.svg?react'
@@ -27,7 +28,7 @@ const Footer = () => {
             <div className="footer-ls">
                 <a href="/">
                     <img 
-                        src="../../public/assets/images/LogoF.png" 
+                        src={Logo} 
                         alt="footer-logo" 
                         width={170}
                     />
