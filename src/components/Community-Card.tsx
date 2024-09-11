@@ -3,13 +3,15 @@ const CommunityCard = ({imageFileName, hTextT, hTextB, pText  }: {
     hTextT: string,
     hTextB: string,
     pText: string
-    }) => {
+}) => {
+    const imageFile = `../../public/assets/icons/${imageFileName}`
+    
     return (
         <div className="community-card">
             <div className="community-card-icon-and-heading">
                 <img 
                     className="community-card-icon"
-                    src={`../../public/assets/icons/${imageFileName}`}    
+                    src={imageFile}    
                     alt={`${imageFileName}-icon`} 
                     width={61.7}
                     height={58.7}
