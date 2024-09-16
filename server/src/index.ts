@@ -22,6 +22,8 @@ app.use(express.json())
 
 app.use("/api", router)
 
-connectToMongoDB()
+const startServer = async () => await connectToMongoDB()
+
+startServer()
 
 export default app

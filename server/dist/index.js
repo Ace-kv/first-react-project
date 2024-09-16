@@ -21,5 +21,6 @@ app.get("/", (req, res) => {
 // Middleware to parse JSON bodies for POST and others
 app.use(express_1.default.json());
 app.use("/api", routes_1.router);
-(0, database_1.connectToMongoDB)();
+const startServer = async () => await (0, database_1.connectToMongoDB)();
+startServer();
 exports.default = app;

@@ -21,8 +21,11 @@ export const connectToMongoDB = async () => {
             
         } catch (error) {
             console.error();
+            await closeMongoDBConnection(); // Properly close the connection on error
+            throw new Error('MongoDB connection failed'); // Throw an error to handle in middleware
         }
     }
+
     return client
 }
 
@@ -30,10 +33,14 @@ export const getConnectedClient = () => client
 
 const closeMongoDBConnection = async () => {
     if (client) {
-        await client.close()                     // Gracefully close the MongoDB connection
-        console.log("MongoDB Connection Closed");
-        client = undefined
-    }
+        try {
+          await client.close();
+          console.log("MongoDB Connection Closed");
+        } catch (closeError) {
+          console.error('Error closing MongoDB connection:', closeError);
+        }
+        client = undefined; // Reset the client after closing
+      }
 }
 
 // Listen for SIGINT (Ctrl+C)
