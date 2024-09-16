@@ -95,14 +95,14 @@ router.get('/ui-sections', async (req: Request, res: Response) => {
 router.post('/ui-sections', validateSection, async (req: Request, res: Response) => {
     try {
         const collection: Collection = res.locals.collection
-        const { component, isActive, order, props } = req.body
+        const { component, order, props } = req.body
 
         const newSection = await collection.insertOne({
             _id: new ObjectId(),
-            component,
-            isActive,
-            order,
-            props
+            component: component,
+            isActive: true,
+            order: typeof(order) !== "string" ? JSON.stringify(order) : order,
+            props: props
         })
 
         res.status(201).json({

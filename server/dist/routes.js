@@ -82,13 +82,13 @@ exports.router.get('/ui-sections', async (req, res) => {
 exports.router.post('/ui-sections', validateSection, async (req, res) => {
     try {
         const collection = res.locals.collection;
-        const { component, isActive, order, props } = req.body;
+        const { component, order, props } = req.body;
         const newSection = await collection.insertOne({
             _id: new mongodb_1.ObjectId(),
-            component,
-            isActive,
-            order,
-            props
+            component: component,
+            isActive: true,
+            order: typeof (order) !== "string" ? JSON.stringify(order) : order,
+            props: props
         });
         res.status(201).json({
             msg: "Section added successfully",
