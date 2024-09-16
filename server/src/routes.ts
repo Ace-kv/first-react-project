@@ -111,7 +111,7 @@ router.post('/ui-sections', validateSection, async (req: Request, res: Response)
 
     } catch (error) {
         console.error('Error adding section:', error);
-        res.status(500).json({ error: 'Failed to add section' })
+        res.status(500).json({ error: `Failed to add section: ${error}` })
     }
 })
 

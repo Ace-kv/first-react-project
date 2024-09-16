@@ -96,7 +96,7 @@ exports.router.post('/ui-sections', validateSection, async (req, res) => {
     }
     catch (error) {
         console.error('Error adding section:', error);
-        res.status(500).json({ error: 'Failed to add section' });
+        res.status(500).json({ error: `Failed to add section: ${error}` });
     }
 });
 // DELETE section
