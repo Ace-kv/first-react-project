@@ -1,5 +1,5 @@
 import express, { Express, Request, Response } from "express";
-// import { router } from "./routes";
+import { router } from "./routes";
 import { connectToMongoDB } from './database';
 import cors from "cors"
 
@@ -20,7 +20,7 @@ app.get("/", (req: Request, res: Response) => {                 // positional ar
 // Middleware to parse JSON bodies for POST and others
 app.use(express.json())
 
-// app.use("/api", router)
+app.use("/api", router)
 
 connectToMongoDB()
 
