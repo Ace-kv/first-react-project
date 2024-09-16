@@ -84,10 +84,9 @@ exports.router.post('/ui-sections', validateSection, async (req, res) => {
         const collection = res.locals.collection;
         const { component, order, props } = req.body;
         const newSection = await collection.insertOne({
-            _id: new mongodb_1.ObjectId(),
             component: component,
             isActive: true,
-            order: typeof (order) !== "string" ? JSON.stringify(order) : order,
+            order: typeof (order) !== "number" ? JSON.stringify(order) : order,
             props: props
         });
         res.status(201).json({

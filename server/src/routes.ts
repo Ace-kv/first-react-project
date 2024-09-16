@@ -98,10 +98,9 @@ router.post('/ui-sections', validateSection, async (req: Request, res: Response)
         const { component, order, props } = req.body
 
         const newSection = await collection.insertOne({
-            _id: new ObjectId(),
             component: component,
             isActive: true,
-            order: typeof(order) !== "string" ? JSON.stringify(order) : order,
+            order: typeof(order) !== "number" ? JSON.stringify(order) : order,
             props: props
         })
 
