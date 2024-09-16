@@ -27,7 +27,7 @@ const getCollectionMiddleware = async (req: Request, res: Response, next: NextFu
         }
 
         // Store the collection in res.locals for use in subsequent middleware or route handlers
-        res.locals.collection
+        res.locals.collection = collection
         // Continue to the next middleware or route handler
         next()
     } catch (error) {
