@@ -46,16 +46,16 @@ const getCollectionMiddleware = async (req, res, next) => {
     }
 };
 const validateSection = async (req, res, next) => {
-    const { component, isActive, order, props } = req.body;
+    const { component, order, props } = req.body;
     // Check to see if the required fields are present
-    if (!component || typeof (component) !== 'string' || typeof (isActive) !== 'boolean' || !order || typeof (order) !== 'number' || !props) {
+    if (!component || typeof (component) !== 'string' || !order || typeof (order) !== 'number' || !props) {
         return res.status(400).json({
             error: 'Missing required fields: component, order, and props'
         });
     }
     const { title, description, buttonText, imageUrl } = props;
     // Check to see if the required props are present
-    if (!title || !description || !buttonText || imageUrl) {
+    if (!title || !description || !buttonText || !imageUrl) {
         return res.status(400).json({
             error: "Missing required prop fields: title, description, buttonText, and imageUrl"
         });
