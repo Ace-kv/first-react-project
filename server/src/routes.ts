@@ -63,7 +63,13 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
     }
 
     const { title, title2, description, buttonText, imageUrl, imageUrlArr, childCardComponent } = props
-    const { cTitle, cTitle2, cDescription, cImageUrlArr, cIcon } = childCardComponent
+
+    // Add a check to ensure childCardComponent exists instead of destructuring its properties
+    const cTitle = childCardComponent?.cTitle;
+    const cTitle2 = childCardComponent?.cTitle2;
+    const cDescription = childCardComponent?.cDescription;
+    const cImageUrlArr = childCardComponent?.cImageUrlArr;
+    const cIcon = childCardComponent?.cIcon;
 
     // Check to see if the required props are present
     if (
