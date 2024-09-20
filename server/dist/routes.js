@@ -55,7 +55,7 @@ const validateSection = async (req, res, next) => {
     const cTitle2 = childCardComponent?.cTitle2;
     const cDescription = childCardComponent?.cDescription;
     const cImageUrlArr = childCardComponent?.cImageUrlArr;
-    const cIcon = childCardComponent?.cIcon;
+    const cIconIdentifier = childCardComponent?.cIconIdentifier;
     // Check to see if the required props are present
     if (typeof title !== 'string' ||
         (title2 !== undefined && typeof title2 !== 'string') ||
@@ -67,7 +67,7 @@ const validateSection = async (req, res, next) => {
             (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
             !Array.isArray(cDescription) ||
             (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
-            (cIcon !== undefined && !Array.isArray(cIcon))))) {
+            (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))))) {
         return res.status(400).json({
             error: "Invalid or missing fields",
             details: {
@@ -81,7 +81,7 @@ const validateSection = async (req, res, next) => {
                     (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
                     !Array.isArray(cDescription) ||
                     (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
-                    (cIcon !== undefined && !Array.isArray(cIcon))) ? 'ChildCardComponent fields are invalid.' : undefined,
+                    (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))) ? 'ChildCardComponent fields are invalid.' : undefined,
             }
         });
     }

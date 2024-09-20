@@ -69,7 +69,7 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
     const cTitle2 = childCardComponent?.cTitle2;
     const cDescription = childCardComponent?.cDescription;
     const cImageUrlArr = childCardComponent?.cImageUrlArr;
-    const cIcon = childCardComponent?.cIcon;
+    const cIconIdentifier = childCardComponent?.cIconIdentifier;
 
     // Check to see if the required props are present
     if (
@@ -84,7 +84,7 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
             (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
             !Array.isArray(cDescription) ||
             (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
-            (cIcon !== undefined && !Array.isArray(cIcon))
+            (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))
         ))
     ) {
         return res.status(400).json({
@@ -101,7 +101,7 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
                     (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
                     !Array.isArray(cDescription) ||
                     (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
-                    (cIcon !== undefined && !Array.isArray(cIcon))
+                    (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))
                 ) ? 'ChildCardComponent fields are invalid.' : undefined,
             }
         })
