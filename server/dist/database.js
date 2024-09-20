@@ -1,21 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getConnectedClient = exports.connectToMongoDB = void 0;
-require("dotenv/config");
-const mongodb_1 = require("mongodb");
+import 'dotenv/config';
+import { MongoClient, ServerApiVersion } from 'mongodb';
 const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
 const options = {
     serverApi: {
-        version: mongodb_1.ServerApiVersion.v1,
+        version: ServerApiVersion.v1,
         strict: true,
         deprecationErrors: true,
     }
 };
 let client;
-const connectToMongoDB = async () => {
+export const connectToMongoDB = async () => {
     if (!client) {
         try {
-            client = new mongodb_1.MongoClient(uri, options);
+            client = new MongoClient(uri, options);
             await client.connect(); // Await the connection
             console.log("Connected to MongoDB");
         }
@@ -27,9 +24,7 @@ const connectToMongoDB = async () => {
     }
     return client;
 };
-exports.connectToMongoDB = connectToMongoDB;
-const getConnectedClient = () => client;
-exports.getConnectedClient = getConnectedClient;
+export const getConnectedClient = () => client;
 const closeMongoDBConnection = async () => {
     if (client) {
         try {
