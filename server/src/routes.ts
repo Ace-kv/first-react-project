@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from "express"
-import { getConnectedClient, connectToMongoDB } from "./database"
+import { getConnectedClient, connectToMongoDB } from "./database.js"
 import { Collection, ObjectId } from "mongodb"
 
 const DATABASE_NAME = "firstMernProjectDB"
@@ -52,18 +52,52 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
     const { component, order, props } = req.body
 
     // Check to see if the required fields are present
-    if (!component || typeof(component) !== 'string' || !order || typeof(order) !== 'number' || !props) {
+    if (
+        !component || typeof(component) !== 'string' ||
+        !order || typeof(order) !== 'number' || 
+        !props
+    ) {
         return res.status(400).json({
             error: 'Missing required fields: component, order, and props'
         })
     }
 
-    const { title, description, buttonText, imageUrl } = props
+    const { title, title2, description, buttonText, imageUrl, imageUrlArr, childCardComponent } = props
+    const { cTitle, cTitle2, cDescription, cImageUrlArr, cIcon } = childCardComponent
 
     // Check to see if the required props are present
-    if (!title || !description || !buttonText || !imageUrl) {
+    if (
+        typeof title !== 'string' ||
+        (title2 !== undefined && typeof title2 !== 'string') ||
+        typeof description !== 'string' ||
+        (buttonText !== undefined && typeof buttonText !== 'string') ||
+        (imageUrl !== undefined && typeof imageUrl !== 'string') ||
+        (imageUrlArr !== undefined && !Array.isArray(imageUrlArr)) ||
+        (childCardComponent !== undefined && (
+            !Array.isArray(cTitle) ||
+            (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
+            !Array.isArray(cDescription) ||
+            (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
+            (cIcon !== undefined && !Array.isArray(cIcon))
+        ))
+    ) {
         return res.status(400).json({
-            error: "Missing required prop fields: title, description, buttonText, and imageUrl"
+            error: "Invalid or missing fields",
+            details: {
+                title: typeof title !== 'string' ? 'Title is required and must be a string.' : undefined,
+                title2: title2 !== undefined && typeof title2 !== 'string' ? 'Title2 must be a string.' : undefined,
+                description: typeof description !== 'string' ? 'Description is required and must be a string.' : undefined,
+                buttonText: buttonText !== undefined && typeof buttonText !== 'string' ? 'ButtonText must be a string.' : undefined,
+                imageUrl: imageUrl !== undefined && typeof imageUrl !== 'string' ? 'ImageUrl must be a string.' : undefined,
+                imageUrlArr: imageUrlArr !== undefined && !Array.isArray(imageUrlArr) ? 'ImageUrlArr must be an array of strings.' : undefined,
+                childCardComponent: childCardComponent !== undefined && (
+                    !Array.isArray(cTitle) ||
+                    (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
+                    !Array.isArray(cDescription) ||
+                    (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
+                    (cIcon !== undefined && !Array.isArray(cIcon))
+                ) ? 'ChildCardComponent fields are invalid.' : undefined,
+            }
         })
     }
 
@@ -81,7 +115,9 @@ router.get('/ui-sections', async (req: Request, res: Response) => {
         const collection: Collection = res.locals.collection
         const sections = await collection.find({}).sort({order: 1}).toArray()
 
-        res.status(200).json({ sections })
+        res.status(200).json({
+            sections: sections 
+        })
 
     } catch (error) {
         res.status(500).json({

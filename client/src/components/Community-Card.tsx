@@ -1,12 +1,12 @@
-import memberIcon from '../../public/assets/icons/member-org-icon.png'
-import natAsocIcon from '../../public/assets/icons/national-assoc-icon.png'
-import clubsNgroupsIcon from '../../public/assets/icons/clubsNgroups-icon.png'
+// import memberIcon from '../../public/assets/icons/member-org-icon.png'
+// import natAsocIcon from '../../public/assets/icons/national-assoc-icon.png'
+// import clubsNgroupsIcon from '../../public/assets/icons/clubsNgroups-icon.png'
 
-const iconMap: { [key: string]: string } = {             // index signature to allow dynamic keys
-    'member-org-icon.png': memberIcon,
-    'national-assoc-icon.png': natAsocIcon,
-    'clubsNgroups-icon.png': clubsNgroupsIcon
-}
+// const iconMap: { [key: string]: string } = {             // index signature to allow dynamic keys
+//     'member-org-icon.png': memberIcon,
+//     'national-assoc-icon.png': natAsocIcon,
+//     'clubsNgroups-icon.png': clubsNgroupsIcon
+// }
 
 const CommunityCard = ({imageFileName, hTextT, hTextB, pText  }: {
     imageFileName: string,
@@ -14,15 +14,16 @@ const CommunityCard = ({imageFileName, hTextT, hTextB, pText  }: {
     hTextB: string,
     pText: string
 }) => {
-    const imageFile: string = iconMap[imageFileName] || ''
+    // const imageFile: string = iconMap[imageFileName] || ''
     
     return (
         <div className="community-card">
             <div className="community-card-icon-and-heading">
                 <img 
                     className="community-card-icon"
-                    src={imageFile}    
-                    alt={`${imageFileName}-icon`} 
+                    // src={imageFile} 
+                    src={imageFileName}    
+                    alt={`${hTextT}${hTextB}-icon`} 
                     width={61.7}
                     height={58.7}
                 />

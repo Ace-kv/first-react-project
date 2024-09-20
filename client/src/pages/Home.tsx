@@ -1,27 +1,310 @@
 import Navbar from '../components/Navbar.tsx'
 import Button from '../components/Button.tsx'
-import HeroIllustration from '../../public/assets/images/hero-Illustration.png'
+// import HeroIllustration from '../../public/assets/images/hero-Illustration.png'
 import ClientShowcase from '../components/Clients-Showcase.tsx'
 import CommunityCard from '../components/Community-Card.tsx'
 import IllustrationHeadingTextBtnSec from '../components/IllusHTB.tsx'
 import Achievement from '../components/Achievement.tsx'
-import Members from '../../public/assets/icons/members.svg?react'
-import Clubs from '../../public/assets/icons/clubs.svg?react'
-import EventBookings from '../../public/assets/icons/event-bookings.svg?react'
-import Payments from '../../public/assets/icons/payments.svg?react'
+// import Members from '../../public/assets/icons/members.svg?react'
+// import Clubs from '../../public/assets/icons/clubs.svg?react'
+// import EventBookings from '../../public/assets/icons/event-bookings.svg?react'
+// import Payments from '../../public/assets/icons/payments.svg?react'
 import CommunityUpdCard from '../components/Community-update-card.tsx'
 import Footer from '../components/Footer.tsx'
-// import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Section from '../types/Section.ts'
 import '../styles.css'
 
 const Home = () => {
+  const [sections, setSections] = useState<Section[]>([])
+
+  useEffect(() => {
+    const fetchSections = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/ui-sections`)
+  
+        if (!res.ok) {
+          throw new Error(`HTTP Error: Status: ${res.status}`)
+        }
+  
+        const data = await res.json()
+        setSections(data.sections)
+
+      } catch (error) {
+          console.error('Error fetching sections:', error)
+      }
+    }
+
+    fetchSections()
+    
+  }, [])
+
+  const renderSection = (section: Section) => {
+    switch (section.component) {
+
+      case 'HeroSection':
+        return (
+          <section key={section.id}>
+            <div className='hero-wrapper'>
+              <div className="hero-left-side">
+                <div className="hero-text">
+                  <div className="headline">
+                    <h1>{section.props.title}</h1>
+                    <h1 className='hero-text-colored-h1'>{section.props.title2}</h1>
+                  </div>
+                  <p className='hero-text-p'>{section.props.description}</p>
+                </div>
+                <Button text='Register'/>
+              </div>
+              <div className="hero-right-side">
+                <img 
+                  src={typeof(section.props.imageUrl) === 'string' ? section.props.imageUrl : ''} 
+                  alt={`${section.component}-illustration`}
+                  width={380.16}
+                  height={390.3}
+                  />
+              </div>
+            </div>
+          </section>
+        )
+
+        case 'ClientSection':
+          return (
+            <section key={section.id}>
+              <div className="clients-and-community-wrapper">
+                <div className="clients-and-community-headings-and-text">
+                  <h2>{section.props.title}</h2>
+                  <p className='clients-and-community-p'>
+                    {section.props.description}
+                  </p>
+                </div>
+                <div className="client-logos">
+                  <ClientShowcase imageUrls={section.props.imageUrlArr}/>
+                </div>
+              </div>
+            </section>
+          )
+
+        case 'CommunitySection':
+          return (
+            <section key={section.id}>
+              <div className="clients-and-community-wrapper">
+                <div className="clients-and-community-headings-and-text">
+                  <h2>
+                    {section.props.title} 
+                  </h2>
+                  <h2 className="clients-and-community-second-h2">
+                    {section.props.title2}
+                  </h2>
+                  <p className='clients-and-community-p'>
+                    {section.props.description}
+                  </p>
+                </div>
+                <div className="community-cards">
+                  <CommunityCard 
+                    imageFileName={
+                      section.props.childCardComponent && section.props.childCardComponent.imageUrlArr
+                        ? section.props.childCardComponent.imageUrlArr[0]
+                        : ''
+                    }
+                    hTextT={section.props.childCardComponent ? section.props.childCardComponent.title[0] : ''}
+                    hTextB={
+                      section.props.childCardComponent && section.props.childCardComponent.title2
+                        ? section.props.childCardComponent.title2[0] 
+                        : ''
+                    }
+                    pText={section.props.childCardComponent ? section.props.childCardComponent.description[0] : ''}
+                  />
+                  <CommunityCard 
+                    imageFileName={
+                      section.props.childCardComponent && section.props.childCardComponent.imageUrlArr
+                        ? section.props.childCardComponent.imageUrlArr[1]
+                        : ''
+                    }
+                    hTextT={section.props.childCardComponent ? section.props.childCardComponent.title[1] : ''}
+                    hTextB={
+                      section.props.childCardComponent && section.props.childCardComponent.title2
+                        ? section.props.childCardComponent.title2[1] 
+                        : ''
+                    }
+                    pText={section.props.childCardComponent ? section.props.childCardComponent.description[1] : ''}
+                  />
+                  <CommunityCard 
+                    imageFileName={
+                      section.props.childCardComponent && section.props.childCardComponent.imageUrlArr
+                        ? section.props.childCardComponent.imageUrlArr[2]
+                        : ''
+                    }
+                    hTextT={section.props.childCardComponent ? section.props.childCardComponent.title[2] : ''}
+                    hTextB={
+                      section.props.childCardComponent && section.props.childCardComponent.title2
+                        ? section.props.childCardComponent.title2[2] 
+                        : ''
+                    }
+                    pText={section.props.childCardComponent ? section.props.childCardComponent.description[2] : ''}
+                  />
+                </div>
+              </div>
+            </section>
+          )
+
+        case 'IHTBSection1':
+          return (
+            <section key={section.id}>
+              < IllustrationHeadingTextBtnSec 
+                imageFileName={section.props.imageUrl}
+                imgWidth={600}
+                hTextT={section.props.title}
+                hTextB={section.props.title2}
+                pText={section.props.description}
+              />
+            </section>
+          )
+
+        case 'AchievementsSection':
+          return (
+            <section key={section.id}>
+              <div className="achievements-wrapper">
+                <div className="achiev-ls-heading-and-text">
+                  <div className="achiev-heading">
+                    <h2>{section.props.title}</h2>
+                    <h2 className="achiev-colored-h2">{section.props.title2}</h2>
+                  </div>
+                  <p className="achiev-text">{section.props.description}</p>
+                </div>
+                <div className="achiev-rs-icon-and-stats">
+                  <div className="achiev-rs-icon-and-stats-row">
+                    <Achievement 
+                      iconIdentifier={
+                        section.props.childCardComponent?.iconIdentifier
+                          ? section.props.childCardComponent?.iconIdentifier[0]
+                          : ''
+                        }
+                      heading={section.props.childCardComponent?.title[0]}
+                      text={section.props.childCardComponent?.description[0]}
+                    />
+                    <Achievement 
+                      iconIdentifier={
+                        section.props.childCardComponent?.iconIdentifier
+                          ? section.props.childCardComponent?.iconIdentifier[1]
+                          : ''
+                        }
+                      heading={section.props.childCardComponent?.title[1]}
+                      text={section.props.childCardComponent?.description[1]}
+                    />
+                  </div>
+                  <div className="achiev-rs-icon-and-stats-row">
+                    <Achievement 
+                      iconIdentifier={
+                        section.props.childCardComponent?.iconIdentifier
+                          ? section.props.childCardComponent?.iconIdentifier[2]
+                          : ''
+                        }
+                      heading={section.props.childCardComponent?.title[2]}
+                      text={section.props.childCardComponent?.description[2]}
+                    />
+                    <Achievement 
+                      iconIdentifier={
+                        section.props.childCardComponent?.iconIdentifier
+                          ? section.props.childCardComponent?.iconIdentifier[3]
+                          : ''
+                        }
+                      heading={section.props.childCardComponent?.title[3]}
+                      text={section.props.childCardComponent?.description[3]}
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          )
+
+        case 'IHTBSection2':
+          return (
+            <section key={section.id}>
+              < IllustrationHeadingTextBtnSec 
+                imageFileName={section.props.imageUrl}
+                imgWidth={600}
+                hTextT={section.props.title}
+                hTextB={section.props.title2}
+                pText={section.props.description}
+              />
+            </section>
+          )
+
+        case 'CommUpdSection':
+          return (
+            <section>
+              <div className="comm-upd-wrapper">
+                <div className="comm-upd-container">
+                  <div className="comm-upd-heading-and-text">
+                    <h2>{section.props.title}</h2>
+                    <p className='comm-upd-text'>
+                      {section.props.description}
+                    </p>
+                  </div>
+                  <div className="comm-upd-cards">
+                    <CommunityUpdCard 
+                      imgFile={
+                        section.props.childCardComponent?.imageUrlArr 
+                          ? section.props.childCardComponent?.imageUrlArr[0]
+                          : ''
+                        }
+                      // imgWidth={380}
+                      hText={
+                        section.props.childCardComponent?.title
+                          ? section.props.childCardComponent?.title[0]
+                          : ''
+                        }
+                    />
+                    <CommunityUpdCard 
+                      imgFile={
+                        section.props.childCardComponent?.imageUrlArr 
+                          ? section.props.childCardComponent?.imageUrlArr[1]
+                          : ''
+                        }
+                      // imgWidth={380}
+                      hText={
+                        section.props.childCardComponent?.title
+                          ? section.props.childCardComponent?.title[1]
+                          : ''
+                        }
+                    />
+                    <CommunityUpdCard 
+                      imgFile={
+                        section.props.childCardComponent?.imageUrlArr 
+                          ? section.props.childCardComponent?.imageUrlArr[2]
+                          : ''
+                        }
+                      // imgWidth={380}
+                      hText={
+                        section.props.childCardComponent?.title
+                          ? section.props.childCardComponent?.title[2]
+                          : ''
+                        }
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          )
+        
+          default:
+            return null
+      }
+  }
 
   return (
     <>
       <Navbar />
 
+      {sections
+        .filter((section) => section.isActive) // Filter active sections
+        .sort((a, b) => a.order - b.order) // Sort sections by order
+        .map(renderSection)
+      }
+
       {/* HERO SECTION */}
-      <section>
+      {/* <section>
         <div className='hero-wrapper'>
           <div className="hero-left-side">
             <div className="hero-text">
@@ -42,10 +325,10 @@ const Home = () => {
               />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CLIENTS SECTION */}
-      <section>
+      {/* <section>
         <div className="clients-and-community-wrapper">
           <div className="clients-and-community-headings-and-text">
             <h2>Our Clients</h2>
@@ -57,10 +340,10 @@ const Home = () => {
             <ClientShowcase />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* COMMUNITY SECTION */}
-      <section>
+      {/* <section>
         <div className="clients-and-community-wrapper">
           <div className="clients-and-community-headings-and-text">
             <h2>
@@ -94,10 +377,10 @@ const Home = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* IHTB SECTION 1 */}
-      <section>
+      {/* <section>
         < IllustrationHeadingTextBtnSec 
           imageFileName='rafiki_Illustration'
           imgWidth={600}
@@ -108,10 +391,10 @@ const Home = () => {
                  Nullam mattis tristique iaculis. Nullam pulvinar sit amet risus pretium auctor. 
                  Etiam quis massa pulvinar, aliquam quam vitae, tempus sem. Donec elementum pulvinar odio.'
         />
-      </section>
+      </section> */}
 
       {/* ACHIEVEMENTS SECTION */}
-      <section>
+      {/* <section>
         <div className="achievements-wrapper">
           <div className="achiev-ls-heading-and-text">
             <div className="achiev-heading">
@@ -147,10 +430,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
        
       {/* IHTB SECTION 2 */}
-      <section>
+      {/* <section>
         < IllustrationHeadingTextBtnSec 
           imageFileName='pana_Illustration'
           imgWidth={600}
@@ -163,10 +446,10 @@ const Home = () => {
                  commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. 
                  Donec consectetur faucibus ipsum id gravida.'
         />
-      </section>
+      </section> */}
 
       {/* COMMUNITY UPDATES SECTION */}
-      <section>
+      {/* <section>
         <div className="comm-upd-wrapper">
           <div className="comm-upd-container">
             <div className="comm-upd-heading-and-text">
@@ -195,7 +478,7 @@ const Home = () => {
 
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FOOTER */}
       <Footer />
