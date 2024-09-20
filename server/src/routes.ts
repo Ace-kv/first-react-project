@@ -82,7 +82,7 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
         (childCardComponent !== undefined && (
             !Array.isArray(cTitle) ||
             (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
-            !Array.isArray(cDescription) ||
+            (cDescription !== undefined && !Array.isArray(cDescription)) ||
             (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
             (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))
         ))
@@ -99,7 +99,7 @@ const validateSection = async (req: Request, res: Response, next: NextFunction) 
                 childCardComponent: childCardComponent !== undefined && (
                     !Array.isArray(cTitle) ||
                     (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
-                    !Array.isArray(cDescription) ||
+                    (cDescription !== undefined && !Array.isArray(cDescription)) ||
                     (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
                     (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))
                 ) ? 'ChildCardComponent fields are invalid.' : undefined,

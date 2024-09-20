@@ -65,7 +65,7 @@ const validateSection = async (req, res, next) => {
         (imageUrlArr !== undefined && !Array.isArray(imageUrlArr)) ||
         (childCardComponent !== undefined && (!Array.isArray(cTitle) ||
             (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
-            !Array.isArray(cDescription) ||
+            (cDescription !== undefined && !Array.isArray(cDescription)) ||
             (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
             (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))))) {
         return res.status(400).json({
@@ -79,7 +79,7 @@ const validateSection = async (req, res, next) => {
                 imageUrlArr: imageUrlArr !== undefined && !Array.isArray(imageUrlArr) ? 'ImageUrlArr must be an array of strings.' : undefined,
                 childCardComponent: childCardComponent !== undefined && (!Array.isArray(cTitle) ||
                     (cTitle2 !== undefined && !Array.isArray(cTitle2)) ||
-                    !Array.isArray(cDescription) ||
+                    (cDescription !== undefined && !Array.isArray(cDescription)) ||
                     (cImageUrlArr !== undefined && !Array.isArray(cImageUrlArr)) ||
                     (cIconIdentifier !== undefined && !Array.isArray(cIconIdentifier))) ? 'ChildCardComponent fields are invalid.' : undefined,
             }

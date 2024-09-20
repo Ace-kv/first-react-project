@@ -13,7 +13,7 @@ export default interface Section {
       childCardComponent?: {
         cTitle: string[],
         cTitle2?: string[],
-        cDescription: string[],
+        cDescription?: string[],
         cImageUrlArr?: string[]
         cIconIdentifier?: string[]
       }

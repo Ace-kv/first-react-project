@@ -113,7 +113,11 @@ const Home = () => {
                         ? section.props.childCardComponent.cTitle2[0] 
                         : ''
                     }
-                    pText={section.props.childCardComponent ? section.props.childCardComponent.cDescription[0] : ''}
+                    pText={
+                      section.props.childCardComponent && section.props.childCardComponent.cDescription
+                        ? section.props.childCardComponent.cDescription[0] 
+                        : ''
+                      }
                   />
                   <CommunityCard 
                     imageFileName={
@@ -127,7 +131,11 @@ const Home = () => {
                         ? section.props.childCardComponent.cTitle2[1] 
                         : ''
                     }
-                    pText={section.props.childCardComponent ? section.props.childCardComponent.cDescription[1] : ''}
+                    pText={
+                      section.props.childCardComponent && section.props.childCardComponent.cDescription
+                        ? section.props.childCardComponent.cDescription[1] 
+                        : ''
+                      }
                   />
                   <CommunityCard 
                     imageFileName={
@@ -141,7 +149,11 @@ const Home = () => {
                         ? section.props.childCardComponent.cTitle2[2] 
                         : ''
                     }
-                    pText={section.props.childCardComponent ? section.props.childCardComponent.cDescription[2] : ''}
+                    pText={
+                      section.props.childCardComponent && section.props.childCardComponent.cDescription
+                        ? section.props.childCardComponent.cDescription[2] 
+                        : ''
+                      }
                   />
                 </div>
               </div>
@@ -181,7 +193,7 @@ const Home = () => {
                           : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[0]}
-                      text={section.props.childCardComponent?.cDescription[0]}
+                      text={section.props.childCardComponent?.cDescription?.[0]}
                     />
                     <Achievement 
                       iconIdentifier={
@@ -190,7 +202,7 @@ const Home = () => {
                           : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[1]}
-                      text={section.props.childCardComponent?.cDescription[1]}
+                      text={section.props.childCardComponent?.cDescription?.[1]}
                     />
                   </div>
                   <div className="achiev-rs-icon-and-stats-row">
@@ -201,7 +213,7 @@ const Home = () => {
                           : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[2]}
-                      text={section.props.childCardComponent?.cDescription[2]}
+                      text={section.props.childCardComponent?.cDescription?.[2]}
                     />
                     <Achievement 
                       iconIdentifier={
@@ -210,7 +222,7 @@ const Home = () => {
                           : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[3]}
-                      text={section.props.childCardComponent?.cDescription[3]}
+                      text={section.props.childCardComponent?.cDescription?.[3]}
                     />
                   </div>
                 </div>
