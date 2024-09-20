@@ -11,11 +11,11 @@ export default interface Section {
       imageUrl?: string,
       imageUrlArr?: string[]
       childCardComponent?: {
-        title: string[],
-        title2?: string[],
-        description: string[],
-        imageUrlArr?: string[]
-        iconIdentifier?: string[]
+        cTitle: string[],
+        cTitle2?: string[],
+        cDescription: string[],
+        cImageUrlArr?: string[]
+        cIconIdentifier?: string[]
       }
     }
 }
