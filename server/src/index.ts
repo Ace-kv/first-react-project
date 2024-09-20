@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import { router } from "./routes.js";
 import { connectToMongoDB } from './database.js';
 import cors from "cors"
+import path from "path";
 
 const app: Express = express()
 
@@ -10,6 +11,9 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],  
     allowedHeaders: ["Content-Type", "Authorization"], 
 }));
+
+// Serve static files from the 'public/assets' directory
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 app.get("/", (req: Request, res: Response) => {                 // positional args
     res.status(200).json({
