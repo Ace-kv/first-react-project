@@ -10,7 +10,7 @@
 
 const CommunityCard = ({imageFileName, hTextT, hTextB, pText  }: {
     imageFileName: string,
-    hTextT: string,
+    hTextT: string | undefined,
     hTextB: string,
     pText: string
 }) => {

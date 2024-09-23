@@ -103,56 +103,65 @@ const Home = () => {
                 <div className="community-cards">
                   <CommunityCard 
                     imageFileName={
-                      section.props.childCardComponent && section.props.childCardComponent.cImageUrlArr
-                        ? section.props.childCardComponent.cImageUrlArr[0]
-                        : ''
+                      section.props.childCardComponent?.cImageUrlArr?.[0] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cImageUrlArr
+                      //   ? section.props.childCardComponent.cImageUrlArr[0]
+                      //   : ''
                     }
-                    hTextT={section.props.childCardComponent ? section.props.childCardComponent.cTitle[0] : ''}
+                    hTextT={section.props.childCardComponent?.cTitle[0]}
                     hTextB={
-                      section.props.childCardComponent && section.props.childCardComponent.cTitle2
-                        ? section.props.childCardComponent.cTitle2[0] 
-                        : ''
+                      section.props.childCardComponent?.cTitle2?.[0] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cTitle2
+                      //   ? section.props.childCardComponent.cTitle2[0] 
+                      //   : ''
                     }
                     pText={
-                      section.props.childCardComponent && section.props.childCardComponent.cDescription
-                        ? section.props.childCardComponent.cDescription[0] 
-                        : ''
+                      section.props.childCardComponent?.cDescription?.[0] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cDescription
+                      //   ? section.props.childCardComponent.cDescription[0] 
+                      //   : ''
                       }
                   />
                   <CommunityCard 
                     imageFileName={
-                      section.props.childCardComponent && section.props.childCardComponent.cImageUrlArr
-                        ? section.props.childCardComponent.cImageUrlArr[1]
-                        : ''
+                      section.props.childCardComponent?.cImageUrlArr?.[1] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cImageUrlArr
+                      //   ? section.props.childCardComponent.cImageUrlArr[1]
+                      //   : ''
                     }
-                    hTextT={section.props.childCardComponent ? section.props.childCardComponent.cTitle[1] : ''}
+                    hTextT={section.props.childCardComponent?.cTitle[1]}
                     hTextB={
-                      section.props.childCardComponent && section.props.childCardComponent.cTitle2
-                        ? section.props.childCardComponent.cTitle2[1] 
-                        : ''
+                      section.props.childCardComponent?.cTitle2?.[1] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cTitle2
+                      //   ? section.props.childCardComponent.cTitle2[1] 
+                      //   : ''
                     }
                     pText={
-                      section.props.childCardComponent && section.props.childCardComponent.cDescription
-                        ? section.props.childCardComponent.cDescription[1] 
-                        : ''
+                      section.props.childCardComponent?.cDescription?.[1] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cDescription
+                      //   ? section.props.childCardComponent.cDescription[1] 
+                      //   : ''
                       }
                   />
                   <CommunityCard 
                     imageFileName={
-                      section.props.childCardComponent && section.props.childCardComponent.cImageUrlArr
-                        ? section.props.childCardComponent.cImageUrlArr[2]
-                        : ''
+                      section.props.childCardComponent?.cImageUrlArr?.[2] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cImageUrlArr
+                      //   ? section.props.childCardComponent.cImageUrlArr[2]
+                      //   : ''
                     }
-                    hTextT={section.props.childCardComponent ? section.props.childCardComponent.cTitle[2] : ''}
+                    hTextT={section.props.childCardComponent?.cTitle[2]}
                     hTextB={
-                      section.props.childCardComponent && section.props.childCardComponent.cTitle2
-                        ? section.props.childCardComponent.cTitle2[2] 
-                        : ''
+                      section.props.childCardComponent?.cTitle2?.[2] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cTitle2
+                      //   ? section.props.childCardComponent.cTitle2[2] 
+                      //   : ''
                     }
                     pText={
-                      section.props.childCardComponent && section.props.childCardComponent.cDescription
-                        ? section.props.childCardComponent.cDescription[2] 
-                        : ''
+                      section.props.childCardComponent?.cDescription?.[2] ?? ''
+                      // section.props.childCardComponent && section.props.childCardComponent.cDescription
+                      //   ? section.props.childCardComponent.cDescription[2] 
+                      //   : ''
                       }
                   />
                 </div>
@@ -188,18 +197,20 @@ const Home = () => {
                   <div className="achiev-rs-icon-and-stats-row">
                     <Achievement 
                       iconIdentifier={
-                        section.props.childCardComponent?.cIconIdentifier
-                          ? section.props.childCardComponent?.cIconIdentifier[0]
-                          : ''
+                        section.props.childCardComponent?.cIconIdentifier?.[0]
+                        // section.props.childCardComponent?.cIconIdentifier
+                        //   ? section.props.childCardComponent?.cIconIdentifier[0]
+                        //   : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[0]}
                       text={section.props.childCardComponent?.cDescription?.[0]}
                     />
                     <Achievement 
                       iconIdentifier={
-                        section.props.childCardComponent?.cIconIdentifier
-                          ? section.props.childCardComponent?.cIconIdentifier[1]
-                          : ''
+                        section.props.childCardComponent?.cIconIdentifier?.[1]
+                        // section.props.childCardComponent?.cIconIdentifier
+                        //   ? section.props.childCardComponent?.cIconIdentifier[1]
+                        //   : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[1]}
                       text={section.props.childCardComponent?.cDescription?.[1]}
@@ -208,18 +219,20 @@ const Home = () => {
                   <div className="achiev-rs-icon-and-stats-row">
                     <Achievement 
                       iconIdentifier={
-                        section.props.childCardComponent?.cIconIdentifier
-                          ? section.props.childCardComponent?.cIconIdentifier[2]
-                          : ''
+                        section.props.childCardComponent?.cIconIdentifier?.[2]
+                        // section.props.childCardComponent?.cIconIdentifier
+                        //   ? section.props.childCardComponent?.cIconIdentifier[2]
+                        //   : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[2]}
                       text={section.props.childCardComponent?.cDescription?.[2]}
                     />
                     <Achievement 
                       iconIdentifier={
-                        section.props.childCardComponent?.cIconIdentifier
-                          ? section.props.childCardComponent?.cIconIdentifier[3]
-                          : ''
+                        section.props.childCardComponent?.cIconIdentifier?.[3]
+                        // section.props.childCardComponent?.cIconIdentifier
+                        //   ? section.props.childCardComponent?.cIconIdentifier[3]
+                        //   : ''
                         }
                       heading={section.props.childCardComponent?.cTitle[3]}
                       text={section.props.childCardComponent?.cDescription?.[3]}
@@ -257,41 +270,47 @@ const Home = () => {
                   <div className="comm-upd-cards">
                     <CommunityUpdCard 
                       imgFile={
-                        section.props.childCardComponent?.cImageUrlArr 
-                          ? section.props.childCardComponent?.cImageUrlArr[0]
-                          : ''
+                        section.props.childCardComponent?.cImageUrlArr?.[0] ?? ''
+                        // section.props.childCardComponent?.cImageUrlArr 
+                        //   ? section.props.childCardComponent?.cImageUrlArr[0]
+                        //   : ''
                         }
                       // imgWidth={380}
                       hText={
-                        section.props.childCardComponent?.cTitle
-                          ? section.props.childCardComponent?.cTitle[0]
-                          : ''
+                        section.props.childCardComponent?.cTitle[0]
+                        // section.props.childCardComponent?.cTitle
+                        //   ? section.props.childCardComponent?.cTitle[0]
+                        //   : ''
                         }
                     />
                     <CommunityUpdCard 
                       imgFile={
-                        section.props.childCardComponent?.cImageUrlArr 
-                          ? section.props.childCardComponent?.cImageUrlArr[1]
-                          : ''
+                        section.props.childCardComponent?.cImageUrlArr?.[1] ?? ''
+                        // section.props.childCardComponent?.cImageUrlArr 
+                        //   ? section.props.childCardComponent?.cImageUrlArr[1]
+                        //   : ''
                         }
                       // imgWidth={380}
                       hText={
-                        section.props.childCardComponent?.cTitle
-                          ? section.props.childCardComponent?.cTitle[1]
-                          : ''
+                        section.props.childCardComponent?.cTitle[1]
+                        // section.props.childCardComponent?.cTitle
+                        //   ? section.props.childCardComponent?.cTitle[1]
+                        //   : ''
                         }
                     />
                     <CommunityUpdCard 
                       imgFile={
-                        section.props.childCardComponent?.cImageUrlArr 
-                          ? section.props.childCardComponent?.cImageUrlArr[2]
-                          : ''
+                        section.props.childCardComponent?.cImageUrlArr?.[2] ?? ''
+                        // section.props.childCardComponent?.cImageUrlArr 
+                        //   ? section.props.childCardComponent?.cImageUrlArr[2]
+                        //   : ''
                         }
                       // imgWidth={380}
                       hText={
-                        section.props.childCardComponent?.cTitle
-                          ? section.props.childCardComponent?.cTitle[2]
-                          : ''
+                        section.props.childCardComponent?.cTitle[2]
+                        // section.props.childCardComponent?.cTitle
+                        //   ? section.props.childCardComponent?.cTitle[2]
+                        //   : ''
                         }
                     />
                   </div>
