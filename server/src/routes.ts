@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from "express"
 import { getConnectedClient, connectToMongoDB } from "./database.js"
 import { Collection, ObjectId } from "mongodb"
+import Section from "./types/Section.js"
 
 const DATABASE_NAME = "firstMernProjectDB"
 const COLLECTION_NAME = "firstMernProjectCollection"
@@ -156,6 +157,58 @@ router.post('/ui-sections', validateSection, async (req: Request, res: Response)
         res.status(500).json({ error: `Failed to add section: ${error}` })
     }
 })
+
+// PUT section
+router.put('/ui-sections', async (req: Request, res: Response) => {
+    try {
+        const { sections } = req.body;
+        const collection = res.locals.collection;
+  
+        // Prepare the bulk update operations
+        const bulkOps = sections.map((section: Section) => ({
+            updateOne: {
+                filter: { _id: new ObjectId(section._id) },
+                update: {
+                    $set: {
+                        component: section.component,
+                        isActive: section.isActive,
+                        order: section.order,
+                        props: {
+                            title: section.props.title,
+                            title2: section.props.title2 || null, // Optional field
+                            description: section.props.description,
+                            buttonText: section.props.buttonText || null, // Optional field
+                            imageUrl: section.props.imageUrl || null, // Optional field
+                            imageUrlArr: section.props.imageUrlArr || [], // Optional field
+                            childCardComponent: section.props.childCardComponent
+                            ? {
+                                cTitle: section.props.childCardComponent.cTitle,
+                                cTitle2: section.props.childCardComponent.cTitle2 || [],
+                                cDescription: section.props.childCardComponent.cDescription || [],
+                                cImageUrlArr: section.props.childCardComponent.cImageUrlArr || [],
+                                cIconIdentifier: section.props.childCardComponent.cIconIdentifier || [],
+                                }
+                            : null, // Optional object
+                        },
+                    },
+                },
+            },
+        }));
+  
+        // Perform bulk update operations
+        const result = await collection.bulkWrite(bulkOps);
+    
+        res.status(200).json({
+            msg: 'Sections updated successfully',
+            matchedCount: result.matchedCount,
+            modifiedCount: result.modifiedCount,
+        });
+        
+    } catch (error) {
+        console.error('Error updating sections:', error);
+        res.status(500).json({ error: 'Failed to update sections' });
+    }
+});
 
 // DELETE section
 router.delete('/ui-sections/:id', async (req: Request, res: Response) => {

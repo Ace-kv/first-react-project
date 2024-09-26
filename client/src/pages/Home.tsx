@@ -44,9 +44,9 @@ const Home = () => {
 
       case 'HeroSection':
         return (
-          <section key={section.id}>
+          <section key={section._id}>
             <div className='hero-wrapper'>
-              <div className="hero-left-side">
+              <div className="hero-left-s_e">
                 <div className="hero-text">
                   <div className="headline">
                     <h1>{section.props.title}</h1>
@@ -70,7 +70,7 @@ const Home = () => {
 
         case 'ClientSection':
           return (
-            <section key={section.id}>
+            <section key={section._id}>
               <div className="clients-and-community-wrapper">
                 <div className="clients-and-community-headings-and-text">
                   <h2>{section.props.title}</h2>
@@ -87,7 +87,7 @@ const Home = () => {
 
         case 'CommunitySection':
           return (
-            <section key={section.id}>
+            <section key={section._id}>
               <div className="clients-and-community-wrapper">
                 <div className="clients-and-community-headings-and-text">
                   <h2>
@@ -171,7 +171,7 @@ const Home = () => {
 
         case 'IHTBSection1':
           return (
-            <section key={section.id}>
+            <section key={section._id}>
               < IllustrationHeadingTextBtnSec 
                 imageFileName={section.props.imageUrl}
                 imgWidth={600}
@@ -184,7 +184,7 @@ const Home = () => {
 
         case 'AchievementsSection':
           return (
-            <section key={section.id}>
+            <section key={section._id}>
               <div className="achievements-wrapper">
                 <div className="achiev-ls-heading-and-text">
                   <div className="achiev-heading">
@@ -245,7 +245,7 @@ const Home = () => {
 
         case 'IHTBSection2':
           return (
-            <section key={section.id}>
+            <section key={section._id}>
               < IllustrationHeadingTextBtnSec 
                 imageFileName={section.props.imageUrl}
                 imgWidth={600}

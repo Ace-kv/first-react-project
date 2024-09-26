@@ -106,7 +106,7 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": [
-    "src",  // Include the custom type definitions
+    "src", // Include the custom type definitions
   ],
   "exclude": ["node_modules"]
 }
