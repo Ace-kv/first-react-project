@@ -13,7 +13,7 @@ import CommunityUpdCard from '../components/Community-update-card.tsx'
 import Footer from '../components/Footer.tsx'
 import { useEffect, useState } from 'react'
 import Section from '../types/Section.ts'
-// import '../styles.css'
+import '../styles.css'
 
 const Home = () => {
   const [sections, setSections] = useState<Section[]>([])
